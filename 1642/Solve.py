@@ -2,7 +2,7 @@ import ast
 from heapq import *
 from typing import *
 
-def furthestBuilding(self, heights: List[int], bricks: int, ladders: int) -> int:
+def furthestBuilding(heights, bricks, ladders) -> int:
     n = len(heights)
     heap = []
     brickSum = 0
@@ -20,4 +20,5 @@ with open('1642/in.txt') as f:
     heights = ast.literal_eval(f.readline())
     bricks = int(f.readline())
     ladders = int(f.readline())
-    print(furthestBuilding(heights, bricks, ladders))
+    ans = (furthestBuilding(heights, bricks, ladders))
+    print(ans)
