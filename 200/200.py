@@ -3,7 +3,6 @@ class Solution:
         #algorithm gotten from user https://leetcode.com/Mohammed_Raziullah_Ansari/
         if not grid:
             return 0
-        
         def dfs(i, j):
             if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] != '1':
                 return
@@ -12,12 +11,10 @@ class Solution:
             dfs(i-1, j)
             dfs(i, j+1)
             dfs(i, j-1)
-        
         num_islands = 0
         for i in range(len(grid)):
             for j in range(len(grid[0])):
                 if grid[i][j] == '1':
                     num_islands += 1
-                    dfs(i, j)
-        
+                    dfs(i, j)  
         return num_islands
