@@ -19,8 +19,7 @@ class Solution {
         dfs(row, col - 1, land);
     }
     public int[][] findFarmland(int[][] land) {
-        int[][] result = new int[land.length*land[0].length][land.length*land[0].length];
-        int ri = 0;
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
         m = land.length;
         n = land[0].length;
 
@@ -30,6 +29,14 @@ class Solution {
                     top_left = new int[]{i, j};
                     bottom_right = new int[]{i,j};
                     dfs(i, j, land);
-                    result[ri] = new int[]{top_left[0], top_left[1], bottom_right[0], bottom_right[1]};
-                    ri+=1;}}}
-        return Arrays.copyOfRange(result,0,ri);}}
+                    result.add(new ArrayList<>(Arrays.asList(top_left[0], top_left[1], bottom_right[0], bottom_right[1])));
+                    }}}
+        int[][] result2 = new int[result.size()][];
+        for (int i = 0; i < result.size(); i++) {
+            ArrayList<Integer> innerList = result.get(i);
+            result2[i] = new int[innerList.size()];
+            for (int j = 0; j < innerList.size(); j++) {
+                result2[i][j] = innerList.get(j);
+            }
+        }
+        return result2;}}
