@@ -7,3 +7,6 @@ class Solution:
                 row.append(max([grid[x][y] for x in range(i-1, i+2) for y in range(j-1, j+2)]))
             a.append(row)
         return a
+
+#one-liner:
+        #return [[max(grid[x][y] for x in range(i-1, i+2) for y in range(j-1, j+2)) for j in range(1, len(grid)-1)] for i in range(1, len(grid)-1)]
