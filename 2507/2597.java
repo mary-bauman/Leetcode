@@ -1,8 +1,7 @@
 class Solution {
   private int dfs(int[] nums, int k, int i, Set<Integer> set) {
     //via https://leetcode.com/u/judgementdey/
-    if (i == nums.length)
-     return set.isEmpty() ? 0 : 1;
+    if (i == nums.length) return set.isEmpty() ? 0 : 1;
 
     var cnt = dfs(nums, k, i+1, set);
     
@@ -17,7 +16,5 @@ class Solution {
 
   public int beautifulSubsets(int[] nums, int k) {
     Arrays.sort(nums);
-
     return dfs(nums, k, 0, new HashSet<Integer>());
-  }
-}
+  }}
