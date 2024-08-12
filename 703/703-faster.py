@@ -6,7 +6,8 @@ class KthLargest:
     def add(self, val: int) -> int:
         if val > self.cur:
             self.nums+=[val]
-            self.cur = sorted(self.nums, reverse=True)[self.k-1]
+            self.nums.sort(reverse=True)
+            self.cur = self.nums[self.k-1]
         return self.cur
 
 
