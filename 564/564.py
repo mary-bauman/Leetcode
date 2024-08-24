@@ -27,13 +27,13 @@ class Solution:
         small_root = str(small_root)
 
         if len(large_root) > root_len:
-            if is_odd: large_root = large_root[:-1]
+            if is_odd: large_root = large_root[:-1] # too many zeros
             larger = construct_palindrome(not is_odd, large_root)
         else:
             larger = construct_palindrome(is_odd, large_root)
 
         if len(small_root) < root_len:
-            if not is_odd: small_root += '9'
+            if not is_odd: small_root += '9' # not enough nines
             smaller = construct_palindrome(not is_odd, small_root)
         else:
             smaller = construct_palindrome(is_odd, small_root)
