@@ -11,7 +11,7 @@ class Solution:
             if waterStartTime[i]>=earliestLandEnd:
                 option1 = min(option1, waterStartTime[i]+waterDuration[i])
             else:
-                option1 = min(option1, waterStartTime[i]+waterDuration[i]+(earliestLandEnd-waterStartTime[i]))
+                option1 = min(option1, waterDuration[i]+earliestLandEnd)
 
         #water first
         earliestWaterEnd = inf
@@ -22,7 +22,7 @@ class Solution:
             if landStartTime[i]>=earliestWaterEnd:
                 option2 = min(option2, landStartTime[i]+landDuration[i])
             else:
-                option2 = min(option2, landStartTime[i]+landDuration[i]+(earliestWaterEnd-landStartTime[i]))
+                option2 = min(option2, landDuration[i]+earliestWaterEnd)
 
         return min(option1, option2)
         
